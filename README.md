@@ -24,17 +24,22 @@
 ```javascript
 
        var map = new ol.Map({
-         target: 'map',
-         layers: [
-           new ol.layer.Tile({
-             source: new ol.source.OSM()
-           })
-         ],
-         view: new ol.View({
-           center: ol.proj.fromLonLat([37.41, 8.82]),
-           zoom: 4
+       target: 'map',
+       layers: [
+         new ol.layer.Tile({
+           source: new ol.source.OSM()
          })
-       });
+       ],
+       view: new ol.View({
+         center: ol.proj.fromLonLat([37.41, 8.82]),
+         zoom: 4
+       })
+     });
 
 ```  
+
+## how to server map
+
+python 360.py -i XXX.xml -o d:\tilemap  --minZoom=1 --maxZoom=3 --box=(-79, 35.5, -78.25, 36.25)
+
 
