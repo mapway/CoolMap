@@ -1,17 +1,142 @@
-<Map background-color="#00000000" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" background-color="#a6c2de" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
 
-  <Style name="County Style">
-    <Rule>
-      <PolygonSymbolizer fill="#ff000066" />
-      <LineSymbolizer stroke="#ff0000ff" stroke-width="1" />
-    </Rule>
-  </Style>
+<Parameters>
+  <Parameter name="bounds">-180,-85.05112877980659,180,85.05112877980659</Parameter>
+  <Parameter name="center">0,0,2</Parameter>
+  <Parameter name="format">png</Parameter>
+  <Parameter name="minzoom">0</Parameter>
+  <Parameter name="maxzoom">22</Parameter>
+  <Parameter name="name"><![CDATA[360 mapp]]></Parameter>
+</Parameters>
 
-  <Layer name="world" srs="+proj=lcc +lat_1=36.16666666666666 +lat_2=34.33333333333334 +lat_0=33.75 +lon_0=-79 +x_0=609601.2192024384 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs ">
-    <StyleName>County Style</StyleName>
+
+<Style name="countries" filter-mode="first" >
+  <Rule>
+    <Filter>([SOV_A3] = 'CH1')</Filter>
+    <PolygonSymbolizer fill="#ffffff" />
+  </Rule>
+  <Rule>
+    <PolygonSymbolizer fill="#f5f3f0" />
+  </Rule>
+</Style>
+<Style name="countries-outline" filter-mode="first" >
+  <Rule>
+    <LineSymbolizer stroke="#85c5d3" stroke-width="2" stroke-linejoin="round" />
+  </Rule>
+</Style>
+<Layer name="countries"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>countries-outline</StyleName>
+    <StyleName>countries</StyleName>
     <Datasource>
-      <Parameter name="type">shape</Parameter>
-      <Parameter name="file">Shapefile/Wake_Boundary_2010_01.shp</Parameter>
+       <Parameter name="file"><![CDATA[D:\dev\IdeaProjects\CoolMap\cache\82945364-10m-admin-0-countries\82945364-10m-admin-0-countries.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+       <Parameter name="id"><![CDATA[countries]]></Parameter>
+       <Parameter name="project"><![CDATA[360]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="lakers" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#88ccee" stroke-width="1.6" />
+    <PolygonSymbolizer fill-opacity="1" fill="#a6c2de" />
+  </Rule>
+</Style>
+<Layer name="lakers"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>lakers</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[D:\dev\IdeaProjects\CoolMap\cache\69ad8179-10m_lakes\69ad8179-10m_lakes.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="parks" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#cceeaa" stroke-width="1" />
+    <PolygonSymbolizer fill-opacity="1" fill="#cceeaa" />
+  </Rule>
+</Style>
+<Layer name="parks"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>parks</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[D:\dev\IdeaProjects\CoolMap\cache\ecab7e8a-10m-us-parks-area\ecab7e8a-10m-us-parks-area.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="country_name" filter-mode="first" >
+</Style>
+<Style name="country_name-label" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <TextSymbolizer face-name="Arial Regular" ><![CDATA[[SOVEREIGNT]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Layer name="country_name"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>country_name-label</StyleName>
+    <StyleName>country_name</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[D:\dev\IdeaProjects\CoolMap\cache\82945364-10m-admin-0-countries\82945364-10m-admin-0-countries.shp]]></Parameter>
+       <Parameter name="id"><![CDATA[country_name]]></Parameter>
+       <Parameter name="project"><![CDATA[360]]></Parameter>
+       <Parameter name="srs"><![CDATA[]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="china_name" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <Filter>([id] &gt;= 8)</Filter>
+    <TextSymbolizer halo-fill="#ffffff" fill="#4472a0" halo-radius="1.5" face-name="Microsoft YaHei Bold" size="10" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([id] &gt;= 8)</Filter>
+    <TextSymbolizer halo-fill="#ffffff" fill="#4472a0" halo-radius="1.5" face-name="Microsoft YaHei Bold" size="18" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <Filter>([id] = 1)</Filter>
+    <TextSymbolizer fill="#ff0000" size="10" face-name="Microsoft YaHei Bold" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([id] = 1)</Filter>
+    <TextSymbolizer fill="#ff0000" face-name="Microsoft YaHei Bold" size="18" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <TextSymbolizer size="10" face-name="Microsoft YaHei Bold" fill="#303030" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <TextSymbolizer face-name="Microsoft YaHei Bold" fill="#303030" size="18" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Layer name="china_name"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>china_name</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[C:\dev\gis\layers\china_name_utf8.shp]]></Parameter>
+       <Parameter name="id"><![CDATA[china_name]]></Parameter>
+       <Parameter name="project"><![CDATA[360]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
 
